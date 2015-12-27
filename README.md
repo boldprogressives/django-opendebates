@@ -19,8 +19,38 @@ Then you can start the development server:
 ./ve/bin/python opendebates/manage.py runserver 0.0.0.0:8000
 ```
 
-There is a management command `manage.py update_trending_scores` -- In production, you'll want a cronjob
-to run that every ten minutes (or more, or less)
+## Site copy and content
+
+We're relying on Django's i18n system for managing site copy.  An "English translation"
+should be generated and used to provide installation-specific text, rather than updating
+messages directly in the codebase.
+
+To that end, all user-visible strings
+in the Python and Django template files are wrapped in Django's i18n functions, and can
+be collected into a .PO file with Django's built-in manage.py commands:
+
+```
+sudo apt-get install gettext
+cd opendebates
+../ve/bin/python manage.py makemessages -l en
+```
+
+This will give you an up-to-date file in
+`opendebates/locale/en/LC_MESSAGES/django.po`
+which you can edit with installation-appropriate text overrides.  To use it, then run:
+
+```
+../ve/bin/python manage.py compilemessages -l en
+```
+
+You can visit the view at `/test/` to confirm that text overrides are working properly.
+
+## Deployment
+
+There is a management command `manage.py update_trending_scores` --
+in production, you'll want a cronjob
+to run that every ten minutes (or more, or less) and may want to adjust
+the "trending algorithm" which is expressed in SQL.
 
 Deployment-specific environment variables can be stored in a `opendebates/.env` file.
 See `opendebates/.env.sample` for relevant variables that you might want to set.
