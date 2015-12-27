@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-12 02:53+0000\n"
+"POT-Creation-Date: 2015-12-27 17:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,123 +17,567 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: opendebates/models.py:22
-# msgid "categories"
-# msgstr "Themes"
-
-#: opendebates/models.py:39
-#, python-format
-msgid "%(name)s from %(state)s"
+#: opendebates/forms.py:22
+msgid ""
+"How your name will be displayed on the site. If you are an expert in a "
+"particular field or have a professional affiliation that is relevant to your "
+"ideas, feel free to mention it here alongside your name! If you leave this "
+"blank, your first name and last initial will be used instead."
 msgstr ""
 
-#: opendebates/models.py:43
+#: opendebates/forms.py:26
+msgid ""
+"Fill in your Twitter username (without the @) if you would like to be "
+"@mentioned on Twitter when people tweet your ideas."
+msgstr ""
+
+#: opendebates/models.py:22
+msgid "categories"
+msgstr ""
+
+#: opendebates/models.py:31
+#: opendebates/templates/opendebates/questions.html:30
 msgid "Question"
 msgstr "Your Question"
 
-#: opendebates/models.py:49
+#: opendebates/models.py:37
 msgid "Optional link to full proposal or reference"
 msgstr ""
 
-#: opendebates/models.py:98
-#, python-format
+#: opendebates/models.py:86
 msgid ""
-"Vote for my progressive idea for @ThinkBigUS %%23BigIdeasProject. 30 leaders "
-"in Congress will see top ideas!"
+"Vote for my progressive idea for @ThinkBigUS #BigIdeasProject. 30 leaders in "
+"Congress will see top ideas!"
 msgstr ""
 
-#: opendebates/models.py:101
+#: opendebates/models.py:89
 #, python-format
 msgid ""
-"Let's make sure 30 leaders in Congress see this %%23BigIdea about "
+"Let's make sure 30 leaders in Congress see this #BigIdea about "
 "%(category_name)s - please vote and RT!"
 msgstr ""
 
-#: opendebates/models.py:122
+#: opendebates/models.py:108
 msgid "Vote+for+my+Big+Idea!"
 msgstr ""
 
-#: opendebates/models.py:125
+#: opendebates/models.py:111
 msgid ""
 "I+posted+an+idea+on+The+Big+Ideas+Project+--+30+members+of+Congress+will+see"
 "+the+top+20+ideas!+Please+click+here+to+see+it+and+vote+on+my+idea+--+and"
 "+share+it+with+your+friends!"
 msgstr ""
 
-#: opendebates/settings.py:87
+#: opendebates/models.py:136
+msgid "Somebody"
+msgstr ""
+
+# msgid "categories"
+# msgstr "Themes"
+#: opendebates/models.py:144
+#, python-format
+msgid "%(name)s from %(state)s"
+msgstr ""
+
+#: opendebates/models.py:198
+msgid "Defaults to first_name last_name."
+msgstr ""
+
+#: opendebates/settings.py:107
 msgid "English"
 msgstr ""
 
+#: opendebates/templates/base.html:21
+#, python-format
+msgid "Welcome, %(username)s!"
+msgstr ""
+
+#: opendebates/templates/base.html:24
+msgid "Log out"
+msgstr ""
+
+#: opendebates/templates/base.html:26
+msgid "Log in"
+msgstr ""
+
+#: opendebates/templates/base.html:27
+msgid "Register"
+msgstr ""
+
+#: opendebates/templates/base.html:45
+msgid "Home"
+msgstr ""
+
+#: opendebates/templates/base.html:48
+#: opendebates/templates/opendebates/list_candidates.html:11
+msgid "Candidates"
+msgstr ""
+
+#: opendebates/templates/base.html:51
+msgid "The District"
+msgstr ""
+
+#: opendebates/templates/base.html:54
+msgid "About"
+msgstr ""
+
+#: opendebates/templates/base.html:57
+msgid "Participate"
+msgstr ""
+
+#: opendebates/templates/opendebates/base.html:16
+msgid "Recent Activity"
+msgstr ""
+
+#: opendebates/templates/opendebates/list_candidates.html:5
 #: opendebates/templates/opendebates/list_ideas.html:5
+#: opendebates/templates/opendebates/questions.html:4
 #: opendebates/templates/opendebates/vote.html:5
 msgid "Open Debates"
 msgstr ""
 
-#: opendebates/templates/opendebates/list_ideas.html:12
+#: opendebates/templates/opendebates/list_ideas.html:14
+msgid "Find questions and vote for the ones you support."
+msgstr ""
+
+#: opendebates/templates/opendebates/list_ideas.html:19
+msgid "Enter search terms"
+msgstr ""
+
+#: opendebates/templates/opendebates/list_ideas.html:31
+msgid "All Categories"
+msgstr ""
+
+#: opendebates/templates/opendebates/list_ideas.html:49
 msgid "Sort by:"
 msgstr ""
 
-#: opendebates/templates/opendebates/list_ideas.html:21
+#: opendebates/templates/opendebates/list_ideas.html:59
 msgid "Trending Now"
 msgstr ""
 
-#: opendebates/templates/opendebates/list_ideas.html:24
+#: opendebates/templates/opendebates/list_ideas.html:62
 msgid "Random"
 msgstr ""
 
-#: opendebates/templates/opendebates/list_ideas.html:27
+#: opendebates/templates/opendebates/list_ideas.html:65
 msgid "Newest First"
 msgstr ""
 
-#: opendebates/templates/opendebates/list_ideas.html:30
+#: opendebates/templates/opendebates/list_ideas.html:68
 msgid "Oldest First"
 msgstr ""
 
-#: opendebates/templates/opendebates/list_ideas.html:33
+#: opendebates/templates/opendebates/list_ideas.html:71
 msgid "Most Votes"
 msgstr ""
 
-#: opendebates/templates/opendebates/list_ideas.html:36
+#: opendebates/templates/opendebates/list_ideas.html:74
 msgid "Fewest Votes"
 msgstr ""
 
-#: opendebates/templates/opendebates/snippets/idea.html:6
-#, python-format
-msgid "Question submitted by %(user_display_name)s. (%(votes)s votes)"
+#: opendebates/templates/opendebates/questions.html:15
+msgid "Category"
 msgstr ""
-"This question was submitted by %(user_display_name)s. (%(votes)s votes)"
 
-#: opendebates/templates/opendebates/snippets/idea.html:9
+#: opendebates/templates/opendebates/questions.html:40
+msgid "First Name"
+msgstr ""
+
+#: opendebates/templates/opendebates/questions.html:50
+msgid "Last Name"
+msgstr ""
+
+#: opendebates/templates/opendebates/questions.html:60
+#: opendebates/templates/opendebates/snippets/vote_modal.html:19
+#: opendebates/templates/opendebates/vote.html:95
+msgid "Email"
+msgstr ""
+
+#: opendebates/templates/opendebates/questions.html:70
+#, fuzzy
+#| msgid "Zip code"
+msgid "Zip Code"
+msgstr "Zip"
+
+#: opendebates/templates/opendebates/questions.html:81
+msgid "Headline"
+msgstr ""
+
+#: opendebates/templates/opendebates/questions.html:93
+#: opendebates/templates/opendebates/snippets/add_question.html:52
+msgid "Citation"
+msgstr ""
+
+#: opendebates/templates/opendebates/questions.html:109
+#, fuzzy
+#| msgid "Question"
+msgid "Submit Question"
+msgstr "Your Question"
+
+#: opendebates/templates/opendebates/snippets/add_question.html:4
+msgid "Submit a New Question"
+msgstr ""
+
+#: opendebates/templates/opendebates/snippets/add_question.html:11
+msgid "Submit a new Question"
+msgstr ""
+
+#: opendebates/templates/opendebates/snippets/add_question.html:19
+msgid "Choose a Category"
+msgstr ""
+
+#: opendebates/templates/opendebates/snippets/add_question.html:41
+msgid ""
+"Enter your question here. If you have multiple&nbsp;questions, please submit "
+"each one separately.\""
+msgstr ""
+
+#: opendebates/templates/opendebates/snippets/add_question.html:67
+#, fuzzy
+#| msgid "Question"
+msgid "Add Your Question"
+msgstr "Your Question"
+
+#: opendebates/templates/opendebates/snippets/idea.html:12
+msgid "Score"
+msgstr ""
+
+#: opendebates/templates/opendebates/snippets/idea.html:22
+#: opendebates/templates/opendebates/snippets/vote_modal.html:38
+#, fuzzy
+#| msgid "Vote"
+msgid "Vote!"
+msgstr "Like"
+
+#: opendebates/templates/opendebates/snippets/idea.html:23
+#, fuzzy
+#| msgid "Vote"
+msgid "Voted"
+msgstr "Like"
+
+#: opendebates/templates/opendebates/snippets/idea.html:32
+msgid ""
+"Similar ideas have been merged into this idea, and their votes have been "
+"combined. You can see the original ideas by viewing this idea."
+msgstr ""
+
+#: opendebates/templates/opendebates/snippets/idea.html:49
+msgid "Merged Idea"
+msgstr ""
+
+#: opendebates/templates/opendebates/snippets/idea.html:56
 #, python-format
 msgid "%(headline)s"
 msgstr ""
 
-#: opendebates/templates/opendebates/snippets/idea.html:12
+#: opendebates/templates/opendebates/snippets/idea.html:63
+#, fuzzy, python-format
+#| msgid "Question submitted by %(user_display_name)s. (%(votes)s votes)"
+msgid "Submitted by %(user_display_name)s"
+msgstr ""
+"This question was submitted by %(user_display_name)s. (%(votes)s votes)"
+
+#: opendebates/templates/opendebates/snippets/idea.html:73
+msgid "Tweet"
+msgstr ""
+
+#: opendebates/templates/opendebates/snippets/idea.html:78
+msgid "Share"
+msgstr ""
+
+#: opendebates/templates/opendebates/snippets/idea.html:83
 #, python-format
-msgid "%(idea)s"
+msgid "%(num_comments)s Comments"
+msgstr ""
+
+#: opendebates/templates/opendebates/snippets/recent_activity.html:5
+#, python-format
+msgid ""
+"\n"
+"  <div class=\"recent-activity-entry-who\">%(user_name)s submitted:</div>\n"
+"  <div class=\"recent-activity-entry-what\">\n"
+"    <a href=\"%(entry_url)s\">%(entry_title)s</a>\n"
+"  </div>\n"
+"  <div class=\"recent-activity-entry-when\">%(entry_date)s</div>\n"
+"  "
+msgstr ""
+
+#: opendebates/templates/opendebates/snippets/recent_activity.html:13
+#, python-format
+msgid ""
+"\n"
+"  <div class=\"recent-activity-entry-who\">%(user_name)s commented on:</"
+"div>\n"
+"  <div class=\"recent-activity-entry-what\">\n"
+"    <a href=\"%(entry_url)s\">%(entry_title)s</a>\n"
+"  </div>\n"
+"  <div class=\"recent-activity-entry-when\">%(entry_date)s</div>\n"
+"  "
+msgstr ""
+
+#: opendebates/templates/opendebates/snippets/recent_activity.html:21
+#, python-format
+msgid ""
+"\n"
+"  <div class=\"recent-activity-entry-who\">%(user_name)s voted for:</div>\n"
+"  <div class=\"recent-activity-entry-what\">\n"
+"    <a href=\"%(entry_url)s\">%(entry_title)s</a>\n"
+"  </div>\n"
+"  <div class=\"recent-activity-entry-when\">%(entry_date)s</div>  \n"
+"  "
+msgstr ""
+
+#: opendebates/templates/opendebates/snippets/vote_modal.html:27
+#: opendebates/templates/opendebates/vote.html:107
+msgid "Zip code"
+msgstr "Zip"
+
+#: opendebates/templates/opendebates/snippets/vote_modal.html:44
+msgid "Unable to submit your vote"
 msgstr ""
 
 #: opendebates/templates/opendebates/test.html:10
 msgid "Replace this"
 msgstr "This is a template override"
 
-#: opendebates/templates/opendebates/vote.html:35
-msgid "Email"
+#: opendebates/templates/opendebates/vote.html:19
+msgid "You may also be interested in..."
 msgstr ""
 
-#: opendebates/templates/opendebates/vote.html:47
-msgid "Zip code"
-msgstr "Zip"
+#: opendebates/templates/opendebates/vote.html:122
+msgid ""
+"\n"
+"              Vote"
+msgstr ""
 
-#: opendebates/templates/opendebates/vote.html:62
-msgid "Vote"
-msgstr "Like"
+#: opendebates/templates/registration/login.html:3
+msgid "Login"
+msgstr ""
 
-#: opendebates/views.py:21
+#: opendebates/templates/registration/login.html:20
+msgid "Don't forget:"
+msgstr ""
+
+#: opendebates/templates/registration/login.html:22
+#: opendebates/templates/registration/registration_form.html:18
+msgid "Usernames and passwords are case-sensitive."
+msgstr ""
+
+#: opendebates/templates/registration/login.html:24
+msgid "Need an account?"
+msgstr ""
+
+#: opendebates/templates/registration/login.html:27
+msgid "Create an Account"
+msgstr ""
+
+#: opendebates/templates/registration/logout.html:3
+msgid "Logged out"
+msgstr ""
+
+#: opendebates/templates/registration/logout.html:5
+msgid "Successfully logged out!"
+msgstr ""
+
+#: opendebates/templates/registration/password_reset_email.html:5
+#: opendebates/templates/registration/password_reset_email.txt:2
+#, python-format
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr ""
+
+#: opendebates/templates/registration/password_reset_email.html:8
+#: opendebates/templates/registration/password_reset_email.txt:4
+msgid "Please go to the following page and choose a new password:"
+msgstr ""
+
+#: opendebates/templates/registration/password_reset_email.html:16
+msgid "Your username for login is"
+msgstr ""
+
+#: opendebates/templates/registration/password_reset_email.html:19
+#: opendebates/templates/registration/password_reset_email.txt:10
+msgid "Thanks for using our site!"
+msgstr ""
+
+#: opendebates/templates/registration/password_reset_email.html:22
+#, python-format
+msgid "&mdash; The %(site_name)s team"
+msgstr ""
+
+#: opendebates/templates/registration/password_reset_email.txt:8
+msgid "Your username for login is:"
+msgstr ""
+
+#: opendebates/templates/registration/password_reset_email.txt:12
+#, python-format
+msgid "The %(site_name)s team"
+msgstr ""
+
+#: opendebates/templates/registration/password_reset_form.html:6
+msgid ""
+"Forgotten your password? Enter your email address below, and we'll email "
+"instructions for setting a new one."
+msgstr ""
+
+#: opendebates/templates/registration/password_reset_form.html:11
+msgid "Email address:"
+msgstr ""
+
+#: opendebates/templates/registration/password_reset_form.html:17
+msgid "Reset my password"
+msgstr ""
+
+#: opendebates/templates/registration/registration_form.html:3
+msgid "Register for an account"
+msgstr ""
+
+#: opendebates/templates/registration/registration_form.html:16
+msgid "Please note:"
+msgstr ""
+
+#: opendebates/templates/registration/registration_form.html:19
+msgid "All fields are required, except for Display Name and Twitter Handle."
+msgstr ""
+
+#: opendebates/templates/registration/registration_form.html:21
+msgid "Already have an account?"
+msgstr ""
+
+#: opendebates/templates/registration/registration_form.html:23
+msgid "Log In"
+msgstr ""
+
+#: opendebates/views.py:25
 msgid "This is my inappropriately PCCC-specific site copy!"
 msgstr ""
 "This is entirely different copy that's appropriate to me as an integrator "
 "external to PCCC!"
 
-#: opendebates/views.py:103
+#: opendebates/views.py:171
 msgid "You have some errors in your form"
+msgstr ""
+
+#: opendebates/views.py:231
+msgid "You have some errors in the form"
+msgstr ""
+
+#: opendebates_comments/forms.py:93
+msgid "Name"
+msgstr ""
+
+#: opendebates_comments/forms.py:94
+msgid "Email address"
+msgstr ""
+
+#: opendebates_comments/forms.py:95
+msgid "URL"
+msgstr ""
+
+#: opendebates_comments/forms.py:96
+msgid "Comment"
+msgstr ""
+
+#: opendebates_comments/forms.py:165
+#, python-format
+msgid "Watch your mouth! The word %s is not allowed here."
+msgid_plural "Watch your mouth! The words %s are not allowed here."
+msgstr[0] ""
+msgstr[1] ""
+
+#: opendebates_comments/forms.py:169
+msgid "and"
+msgstr ""
+
+#: opendebates_comments/forms.py:174
+msgid ""
+"If you enter anything in this field your comment will be treated as spam"
+msgstr ""
+
+#: opendebates_comments/models.py:22
+msgid "content type"
+msgstr ""
+
+#: opendebates_comments/models.py:24
+msgid "object ID"
+msgstr ""
+
+#: opendebates_comments/models.py:51 opendebates_comments/models.py:172
+msgid "user"
+msgstr ""
+
+#: opendebates_comments/models.py:54 opendebates_comments/models.py:74
+#: opendebates_comments/models.py:173
+msgid "comment"
+msgstr ""
+
+#: opendebates_comments/models.py:57
+msgid "date/time submitted"
+msgstr ""
+
+#: opendebates_comments/models.py:59
+msgid "IP address"
+msgstr ""
+
+#: opendebates_comments/models.py:60
+msgid "is public"
+msgstr ""
+
+#: opendebates_comments/models.py:62
+msgid ""
+"Uncheck this box to make the comment effectively disappear from the site."
+msgstr ""
+
+#: opendebates_comments/models.py:64
+msgid "is removed"
+msgstr ""
+
+#: opendebates_comments/models.py:66
+msgid ""
+"Check this box if the comment is inappropriate. A \"This comment has been "
+"removed\" message will be displayed instead."
+msgstr ""
+
+#: opendebates_comments/models.py:75
+msgid "comments"
+msgstr ""
+
+#: opendebates_comments/models.py:119
+msgid ""
+"This comment was posted by an authenticated user and thus the name is read-"
+"only."
+msgstr ""
+
+#: opendebates_comments/models.py:129
+msgid ""
+"This comment was posted by an authenticated user and thus the email is read-"
+"only."
+msgstr ""
+
+#: opendebates_comments/models.py:155
+#, python-format
+msgid ""
+"Posted by %(user)s at %(date)s\n"
+"\n"
+"%(comment)s\n"
+"\n"
+"http://%(domain)s%(url)s"
+msgstr ""
+
+#: opendebates_comments/models.py:174
+msgid "flag"
+msgstr ""
+
+#: opendebates_comments/models.py:175
+msgid "date"
+msgstr ""
+
+#: opendebates_comments/models.py:185
+msgid "comment flag"
+msgstr ""
+
+#: opendebates_comments/models.py:186
+msgid "comment flags"
 msgstr ""
