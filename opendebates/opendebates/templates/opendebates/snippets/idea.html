@@ -1,0 +1,100 @@
+{% load i18n %}
+
+<div id="i{{ idea.id }}" data-idea-id="{{ idea.id }}" class="big-idea clearfix">
+  <div class="row">
+    <div class="votes {% if is_related %}col-md-3{% else %}col-md-2{% endif %}">
+      {% if is_duplicate %}
+      <small class="duplicate-merged-link"><a href="{% url 'show_idea' idea.duplicate_of_id %}">&#8679; Merged</a></small>
+      {% else %}
+      <div class="vote-tally text-center">
+        <div
+           style="font-size: 10px; font-family: 'Open Sans', helvetica, arial, sans-serif; padding-top: 0; margin-top: -10px; font-weight: lighter; text-transform: uppercase">
+          {% blocktrans %}Score{% endblocktrans %}
+        </div>
+        <span class="vote-tally-number">{{ idea.votes }}</span>
+      </div>
+      <div class="vote-bottom center-block center-text">
+        <a id="vote-button-{{ idea.id }}"
+           data-target="#modal-vote"
+           role="button"
+           class="vote-button"
+           data-vote-url="{% url 'vote' idea.id %}"           
+           data-toggle="modal">{% blocktrans %}Vote!{% endblocktrans %}</a>
+        <a class="already-voted-button">{% blocktrans %}Voted{% endblocktrans %}</a>
+      </div>
+      {% endif %}
+    </div>
+    
+    <div class="{% if is_related %}col-md-9{% else %}col-md-10{% endif %} question">
+
+        {% if idea.has_duplicates %}
+        <div class="idea-duplicates" data-toggle="popover" data-placement="bottom"
+             data-content="{% blocktrans %}Similar ideas have been merged into this idea, and their votes have been combined. You can see the original ideas by viewing this idea.{% endblocktrans %}">
+          <svg version="1.1" width="22" height="21"
+               xml:space="preserve" class="svg-merged"
+               viewBox="0 0 57.1 53.9">
+            <g>
+              <path fill="#FFF" d="M3,50.9h15v-9h9V15H3V50.9z M6.1,30.5c0-0.2,0.2-0.4,0.4-0.4l6.6,0v-4c0-0.2,0.1-0.3,0.3-0.2l8.1,6.2
+			           c0.2,0.1,0.2,0.3,0,0.5l-8.1,6.2C13.2,39.1,13,39,13,38.8v-4H6.5c-0.2,0-0.4-0.2-0.4-0.4V30.5z"/>
+              <path fill="#FFF" d="M30.1,38.9h15v-9h9V3h-24V38.9z M35.6,19.7l8.1-6.2c0.2-0.1,0.3-0.1,0.3,0.2v4h6.6c0.2,0,0.4,0.2,0.4,0.4
+			           v3.9c0,0.2-0.2,0.4-0.4,0.4H44v4c0,0.2-0.1,0.3-0.3,0.2l-8.1-6.2C35.5,20.1,35.5,19.9,35.6,19.7z"/>
+              <path d="M27.1,0v12H0v41.9h21l9-9v-3h18.1l9-9V0H27.1z M27,41.9h-9v9H3V15h24V41.9z M54.1,29.9h-9v9h-15V3h24V29.9z"/>
+              <path d="M43.7,26.4c0.2,0.1,0.3,0.1,0.3-0.2v-4h6.6c0.2,0,0.4-0.2,0.4-0.4V18c0-0.2-0.2-0.4-0.4-0.4H44v-4c0-0.2-0.1-0.3-0.3-0.2
+	               l-8.1,6.2c-0.2,0.1-0.2,0.3,0,0.5L43.7,26.4z"/>
+              <path d="M6.5,34.8H13v4c0,0.2,0.1,0.3,0.3,0.2l8.1-6.2c0.2-0.1,0.2-0.3,0-0.5L13.3,26c-0.2-0.1-0.3-0.1-0.3,0.2v4l-6.6,0
+	               c-0.2,0-0.4,0.2-0.4,0.4v3.9C6.1,34.6,6.2,34.8,6.5,34.8z"/>
+            </g>
+          </svg>
+
+          <span>{% blocktrans %}Merged Idea{% endblocktrans %}</span>
+        </div>
+        <div class="idea-duplicates-spacing"></div>
+        {% endif %}
+      
+      {% if idea.headline %}
+      <p><strong class="headline">
+          {% blocktrans with headline=idea.headline %}{{ headline }}{% endblocktrans %}</strong>
+      </p>
+      {% endif %}
+      <p class="idea">
+        {{ idea.idea }}
+      </p>
+      <p class="created-by">
+        {% blocktrans with user_display_name=idea.user_display_name %}Submitted by {{ user_display_name }}{% endblocktrans %}
+      </p>
+      <p class="created-at">
+        {{ idea.created_at }}
+      </p>
+
+      <div class="social_links">
+
+        <span class="tweet-button">
+          <a class="twitter" href="{{ idea.twitter_url }}" target="_blank">
+            {% blocktrans %}Tweet{% endblocktrans %}
+          </a>
+        </span>
+        <span class="fb-button">
+          <a class="facebook" href="{{ idea.facebook_url }}" target="_blank">
+            {% blocktrans %}Share{% endblocktrans %}
+          </a>
+        </span>
+        <span class="comments">
+          <a href="{{ idea.get_absolute_url }}">
+            {% blocktrans with idea.num_comments as num_comments %}{{ num_comments }} Comments{% endblocktrans %}
+          </a>
+        </span>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if show_duplicates and idea.has_duplicates %}
+<div class="row">
+  <div class="col-xs-12 idea-duplicates-list">
+    {% for duplicate in idea.get_duplicates %}
+    {% include "opendebates/snippets/idea.html" with idea=duplicate is_duplicate=1 %}
+    {% endfor %}
+  </div>
+</div>
+{% endif %}

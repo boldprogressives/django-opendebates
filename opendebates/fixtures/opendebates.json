@@ -1,0 +1,23 @@
+[
+    {
+        "fields": {
+            "name": "Health"
+        },
+        "model": "opendebates.category",
+        "pk": 1
+    },
+    {
+        "fields": {
+            "name": "Climate"
+        },
+        "model": "opendebates.category",
+        "pk": 2
+    },
+    {
+        "fields": {
+            "name": "Education"
+        },
+        "model": "opendebates.category",
+        "pk": 3
+    }
+]

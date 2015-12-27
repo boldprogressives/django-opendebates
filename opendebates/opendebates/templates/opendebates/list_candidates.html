@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}
+  {% blocktrans %}Open Debates{% endblocktrans %}
+{% endblock %}
+
+
+{% block content %}
+<p>
+  <h1 class="headline">{% blocktrans %}Candidates{% endblocktrans %}</h1>
+</p>
+  <div class="row">
+    <div class="col-md-12">
+      {% for candidate in candidates %}
+        {% include "opendebates/snippets/candidate.html" %}
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

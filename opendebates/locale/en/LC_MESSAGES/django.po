@@ -1,0 +1,139 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-05-12 02:53+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: opendebates/models.py:22
+# msgid "categories"
+# msgstr "Themes"
+
+#: opendebates/models.py:39
+#, python-format
+msgid "%(name)s from %(state)s"
+msgstr ""
+
+#: opendebates/models.py:43
+msgid "Question"
+msgstr "Your Question"
+
+#: opendebates/models.py:49
+msgid "Optional link to full proposal or reference"
+msgstr ""
+
+#: opendebates/models.py:98
+#, python-format
+msgid ""
+"Vote for my progressive idea for @ThinkBigUS %%23BigIdeasProject. 30 leaders "
+"in Congress will see top ideas!"
+msgstr ""
+
+#: opendebates/models.py:101
+#, python-format
+msgid ""
+"Let's make sure 30 leaders in Congress see this %%23BigIdea about "
+"%(category_name)s - please vote and RT!"
+msgstr ""
+
+#: opendebates/models.py:122
+msgid "Vote+for+my+Big+Idea!"
+msgstr ""
+
+#: opendebates/models.py:125
+msgid ""
+"I+posted+an+idea+on+The+Big+Ideas+Project+--+30+members+of+Congress+will+see"
+"+the+top+20+ideas!+Please+click+here+to+see+it+and+vote+on+my+idea+--+and"
+"+share+it+with+your+friends!"
+msgstr ""
+
+#: opendebates/settings.py:87
+msgid "English"
+msgstr ""
+
+#: opendebates/templates/opendebates/list_ideas.html:5
+#: opendebates/templates/opendebates/vote.html:5
+msgid "Open Debates"
+msgstr ""
+
+#: opendebates/templates/opendebates/list_ideas.html:12
+msgid "Sort by:"
+msgstr ""
+
+#: opendebates/templates/opendebates/list_ideas.html:21
+msgid "Trending Now"
+msgstr ""
+
+#: opendebates/templates/opendebates/list_ideas.html:24
+msgid "Random"
+msgstr ""
+
+#: opendebates/templates/opendebates/list_ideas.html:27
+msgid "Newest First"
+msgstr ""
+
+#: opendebates/templates/opendebates/list_ideas.html:30
+msgid "Oldest First"
+msgstr ""
+
+#: opendebates/templates/opendebates/list_ideas.html:33
+msgid "Most Votes"
+msgstr ""
+
+#: opendebates/templates/opendebates/list_ideas.html:36
+msgid "Fewest Votes"
+msgstr ""
+
+#: opendebates/templates/opendebates/snippets/idea.html:6
+#, python-format
+msgid "Question submitted by %(user_display_name)s. (%(votes)s votes)"
+msgstr ""
+"This question was submitted by %(user_display_name)s. (%(votes)s votes)"
+
+#: opendebates/templates/opendebates/snippets/idea.html:9
+#, python-format
+msgid "%(headline)s"
+msgstr ""
+
+#: opendebates/templates/opendebates/snippets/idea.html:12
+#, python-format
+msgid "%(idea)s"
+msgstr ""
+
+#: opendebates/templates/opendebates/test.html:10
+msgid "Replace this"
+msgstr "This is a template override"
+
+#: opendebates/templates/opendebates/vote.html:35
+msgid "Email"
+msgstr ""
+
+#: opendebates/templates/opendebates/vote.html:47
+msgid "Zip code"
+msgstr "Zip"
+
+#: opendebates/templates/opendebates/vote.html:62
+msgid "Vote"
+msgstr "Like"
+
+#: opendebates/views.py:21
+msgid "This is my inappropriately PCCC-specific site copy!"
+msgstr ""
+"This is entirely different copy that's appropriate to me as an integrator "
+"external to PCCC!"
+
+#: opendebates/views.py:103
+msgid "You have some errors in your form"
+msgstr ""

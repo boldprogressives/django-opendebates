@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% load i18n bootstrap %}
+
+{% block title %}
+  {% blocktrans %}Open Debates{% endblocktrans %}
+{% endblock %}
+
+
+{% block content %}
+<div class="row">
+  <div class="col-sm-9">
+
+    <div class="idea-detail">
+      {% include "opendebates/snippets/idea.html" %}        
+    </div>
+
+    {% if related1 %}
+    <div class="idea-related">
+      <h4>{% blocktrans %}You may also be interested in...{% endblocktrans %}</h4>
+      <div class="row">
+        <div class="col-md-6">
+          {% include "opendebates/snippets/idea.html" with idea=related1 is_related=1 %}
+        </div>
+        <div class="col-md-6">
+          {% if related2 %}
+          {% include "opendebates/snippets/idea.html" with idea=related2 is_related=1 %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    
+    {% if comment_list|length %}
+    <div class="comment-count">
+      <h4>
+        {% if comment_list|length == 1 %}
+        {{ comment_list|length }} Comment
+        {% else %}
+        {{ comment_list|length }} Comments
+        {% endif %}
+      </h4>
+    </div>
+    
+    <div class="comment-list">
+      
+      {% for comment in comment_list %}
+      <div class="comment-list-entry">
+        <div class="author">
+          {{ comment.user.voter.user_display_name }}
+        </div>
+        <div class="body">
+          {{ comment.comment }}
+        </div>
+        <div class="timestamp">
+          <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+          {{ comment.submit_date }}
+        </div>
+      </div>
+      {% endfor %}
+      
+    </div>
+    {% endif %}
+
+    <h5>Add a Comment</h5>
+    {% if request.user.is_authenticated %}
+    <form class="comment-form"
+          action="{% url 'comment' %}" method="post">
+      {% csrf_token %}
+      <input type="hidden" name="next" 
+             value="{% url 'show_idea' idea.id %}" />
+      
+      <div class="row">
+        <div class="col-sm-9">
+          {{ comment_form|bootstrap }}
+        </div>
+        <div class="col-sm-3">
+          <input class="btn btn-default" 
+                 type="submit" name="submit" value="Post Comment">
+        </div>
+      </div>
+
+    </form>
+    {% else %}
+    <a href="{% url 'auth_login' %}" 
+       class="btn btn-default">Log In</a>
+    <a href="{% url 'registration_register' %}"
+       class="btn btn-default">Create an Account</a>
+    {% endif %}
+    
+    <form action="{% url 'vote' id=idea.id %}" method="POST" class="hidden form-inline">
+      {% csrf_token %}
+      <fieldset>
+        <!-- Text input-->
+        <div class="control-group">
+          <label class="control-label" for="email">{% blocktrans %}Email{% endblocktrans %}</label>
+          
+          <div class="controls">
+            <input id="email" name="email" type="text" class="input-large" value="{{ form.data.email }}">
+            {% if form.errors.email %}
+            <p class="help-block">{{ form.errors.email }}</p>
+            {% endif %}
+          </div>
+        </div>
+        
+        <!-- Text input-->
+        <div class="control-group">
+          <label class="control-label" for="zipcode">{% blocktrans %}Zip code{% endblocktrans %}</label>
+          
+          <div class="controls">
+            <input id="zipcode" name="zipcode" type="text" class="input-large" value="{{ form.data.zipcode }}">
+            {% if form.errors.zipcode %}
+            <p class="help-block">{{ form.errors.zipcode }}</p>
+            {% endif %}
+          </div>
+        </div>
+        
+        <!-- Button -->
+        <div class="control-group">
+          <label class="control-label" for="votebutton"></label>
+          
+          <div class="controls">
+            <button id="votebutton" name="votebutton" class="btn btn-primary">{% blocktrans %}
+              Vote{% endblocktrans %}</button>
+          </div>
+        </div>
+        
+      </fieldset>
+    </form>
+    
+  </div>
+  <div class="col-sm-3">
+
+  </div>
+</div>
+{% endblock %}

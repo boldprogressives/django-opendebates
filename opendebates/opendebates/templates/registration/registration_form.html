@@ -1,0 +1,27 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n bootstrap %}
+{% block title %}{% trans "Register for an account" %}{% endblock %}
+{% block content %}
+  <div class="row">
+    <div class="col-sm-6">
+
+      <form method="post" action="">{% csrf_token %}
+        {{ form|bootstrap }}
+        <input class="btn btn-primary"
+               type="submit" value="Create Account">
+      </form>
+      
+    </div>
+    <div class="col-sm-6">
+      <p>{% blocktrans %}Please note:{% endblocktrans %}</p>
+      <ul>
+        <li>{% blocktrans %}Usernames and passwords are case-sensitive.{% endblocktrans %}</li>
+        <li>{% blocktrans %}All fields are required, except for Display Name and Twitter Handle.{% endblocktrans %}</li>
+      </ul>
+      <p>{% blocktrans %}Already have an account?{% endblocktrans %}</p>
+      <p>
+        <a class="btn btn-default" href="/registration/login/">{% blocktrans %}Log In{% endblocktrans %}</a>
+      </p>
+    </div>
+  </div>
+{% endblock %}

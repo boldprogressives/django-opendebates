@@ -1,0 +1,20 @@
+[
+    {
+        "fields": {
+            "date_joined": "2015-05-03T19:42:43.063Z",
+            "email": "tech@boldprogressives.org",
+            "first_name": "",
+            "groups": [],
+            "is_active": true,
+            "is_staff": true,
+            "is_superuser": true,
+            "last_login": null,
+            "last_name": "",
+            "password": "pbkdf2_sha256$20000$SEXMMh3jUO94$nHB9zWpsd8iIxyceaTyE8/8WJ4yfnLSWHP14oRScZtI=",
+            "user_permissions": [],
+            "username": "admin"
+        },
+        "model": "auth.user",
+        "pk": 1
+    }
+]

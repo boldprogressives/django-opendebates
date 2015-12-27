@@ -1,0 +1,31 @@
+{% load i18n %}
+{% for entry in recent_activity %}
+<div class="recent-activity-entry">
+  {% if entry.idea %}
+  {% blocktrans with user_name=entry.user_display_name entry_url=entry.get_absolute_url entry_title=entry.idea entry_date=entry.created_at %}
+  <div class="recent-activity-entry-who">{{ user_name }} submitted:</div>
+  <div class="recent-activity-entry-what">
+    <a href="{{ entry_url }}">{{ entry_title }}</a>
+  </div>
+  <div class="recent-activity-entry-when">{{ entry_date }}</div>
+  {% endblocktrans %}
+  {% elif entry.comment %}
+  {% blocktrans with user_name=entry.user.voter.user_display_name entry_url=entry.object.get_absolute_url entry_title=entry.object.idea entry_date=entry.created_at %}
+  <div class="recent-activity-entry-who">{{ user_name }} commented on:</div>
+  <div class="recent-activity-entry-what">
+    <a href="{{ entry_url }}">{{ entry_title }}</a>
+  </div>
+  <div class="recent-activity-entry-when">{{ entry_date }}</div>
+  {% endblocktrans %}  
+  {% elif entry.voter %}
+  {% blocktrans with user_name=entry.voter.user_display_name entry_url=entry.submission.get_absolute_url entry_title=entry.submission.idea entry_date=entry.created_at %}
+  <div class="recent-activity-entry-who">{{ user_name }} voted for:</div>
+  <div class="recent-activity-entry-what">
+    <a href="{{ entry_url }}">{{ entry_title }}</a>
+  </div>
+  <div class="recent-activity-entry-when">{{ entry_date }}</div>  
+  {% endblocktrans %}
+  {% endif %}
+</div>
+{% endfor %}
+

@@ -1,0 +1,32 @@
+[
+{
+  "fields": {
+    "registration_required": false,
+    "title": "About",
+    "url": "/about/",
+    "template_name": "",
+    "sites": [
+      1
+    ],
+    "content": "Why Open Debate Questions?\r\n\r\nElection debates should be accountable to one constituency: the public.\r\n\r\nOpen Debate Questions make candidate questioning more transparent and accountable. Anyone can submit a question, in public, and the questions are voted on by the people who most need to be informed about the candidates' positions \u2014 the local electorate. Candidates who will be participating in the debate are free to visit the site and monitor the most popular questions along with everybody else, if they want to prepare for the questions that are most likely to be asked. If they do, that's great \u2014 it means they're listening to you, their future constituents.\r\n\r\nBy making the submission and voting process fully public and transparent, Open Debate Questions ensure that the topics covered in election debates reflect the interests and priorities of the voters, rather than campaign operations and corporate media.\r\n\r\nHow it works\r\n\r\nAnybody can submit a question, which will immediately be posted publicly. To submit a question, we ask that you provide your name, email address and zip code. That way, people will know whether the question is coming from a local voter, and we can contact you if your question is chosen for the debate. Your name and zip code will be made public alongside your question, but don't worry \u2014 your email address will never be posted publicly.\r\n\r\nYou can browse through all the submitted questions, sorted either by popularity (number of votes cast) or date (most recently submitted questions first)\r\n\r\nAnybody can vote on their favorite questions. You can vote any number of times, but can only cast one vote per question. To ensure that people are not voting multiple times for the same question, we ask all voters to supply an email address and zip code. Your zip code, and the votes you have cast, may be made public, but your email address will not be posted publicly.\r\n\r\n\r\nWe reserve the right to remove questions from the site that contain vulgar language, advertisements, or other inappropriate content.\r\n",
+    "enable_comments": false
+  },
+  "model": "flatpages.flatpage",
+  "pk": 1
+},
+{
+  "fields": {
+    "registration_required": false,
+    "title": "Privacy Policy",
+    "url": "/privacy/",
+    "template_name": "",
+    "sites": [
+      1
+    ],
+    "content": "<h1>PRIVACY POLICY</h1>\r\n\r\n<p>We will send you updates by email. If at any time you would like to unsubscribe from our email list, you may do so by clicking the unsubscribe link at the bottom of all our emails. If partner organizations are listed on a site, as part of a given campaign that you opt into, they may send you updates as well.</p>\r\n\r\n<p>We collect information you voluntarily provide on petitions, sign-up forms, or donations including name, email, and zip code. For petitions, open letters, or similar public communications that you\u2019ve signed or completed, we treat your name, city, state, and comments as public information. We will not make your street address publicly available, but we may transmit it to public officials as part of a petition or open letter. We may also use cookies from third parties such as Google Adwords to serve ads based on usage of this site.</p>",
+    "enable_comments": false
+  },
+  "model": "flatpages.flatpage",
+  "pk": 2
+}
+]
