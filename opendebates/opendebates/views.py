@@ -147,7 +147,7 @@ def vote(request, id):
                                              duplicate_of__isnull=True,
                                              approved=True).exclude(
                                                  id=idea.id).exclude(id=related1.id)[0]
-    except IndexError:
+    except (IndexError, AttributeError):  # if related1 is None -> related1.id 
         related2 = None
         
     if request.method == "GET":
