@@ -11,6 +11,7 @@ virtualenv --python=python2.7 ve
 ./ve/bin/pip install -r requirements.txt
 ./ve/bin/python opendebates/manage.py makemigrations registration
 ./ve/bin/python opendebates/manage.py syncdb
+./ve/bin/python opendebates/manage.py load_zipcode_database ./zips.csv
 ```
 
 Then you can start the development server:

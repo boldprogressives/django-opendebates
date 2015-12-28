@@ -12,7 +12,7 @@ import json
 
 from registration.backends.simple.views import RegistrationView
 
-from .models import Submission, Voter, Vote, Category, Candidate
+from .models import Submission, Voter, Vote, Category, Candidate, ZipCode
 from .utils import get_ip_address_from_request, choose_sort, sort_list
 from .forms import OpenDebatesRegistrationForm
 from .forms import VoterForm, QuestionForm
@@ -178,7 +178,7 @@ def vote(request, id):
     if voter.zip != form.cleaned_data['zipcode']:
         voter.zip = form.cleaned_data['zipcode']
         try:
-            voter.state = ZipCode.objects.get(zip=cleaned_data['zip']).state
+            voter.state = ZipCode.objects.get(zip=form.cleaned_data['zipcode']).state
         except Exception:
             pass
         
