@@ -69,6 +69,15 @@ in `opendebates/static` -- instead, make edits to the source files (usually that
 to update the served copies.
 
 
+### Deployment on Heroku
+
+Should be straightforward.  Only one catch -- run these as one command:
+
+```
+heroku run 'opendebates/manage.py makemigrations registration && opendebates/manage.py syncdb'
+```
+
+
 ## Using Vagrant to create dev VM
 
 ### Installation
