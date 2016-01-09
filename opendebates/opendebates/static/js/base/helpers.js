@@ -2,11 +2,18 @@
   var ODebates = window.ODebates || {};
   ODebates.helpers = ODebates.helpers || {};
 
+  ODebates.helpers.getParameterByName = function(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? null : decodeURIComponent(results[1].replace(/\+/g, " "));
+  };
+  
   ODebates.helpers.strTrim = function (str) {
     if (typeof str === "string") {
       return str.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
     }
-  }
+  };
 
   ODebates.helpers.isValidDate = function (d) {
     if ( Object.prototype.toString.call(d) !== "[object Date]" ){
@@ -116,6 +123,11 @@
 
   $(window).load(function() {
 
+    var src = ODebates.helpers.getParameterByName("source");
+    if (typeof src === "string") {
+      $.cookie("opendebates.source", src, { path: "/" });      
+    }
+    
     if (typeof ODebates.stashedSubmission !== 'undefined') {
       var form = $("#add_question form");
       form.find(":input[name=category]").val(ODebates.stashedSubmission.category);

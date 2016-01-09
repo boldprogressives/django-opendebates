@@ -64,6 +64,8 @@ class Submission(models.Model):
     objects = SearchManager(fields=["idea", "keywords"],
                             auto_update_search_field=True)
 
+    source = models.CharField(max_length=255, null=True, blank=True)
+    
     def get_recent_votes(self):
        timespan = datetime.datetime.now() - datetime.timedelta(1)
        return Vote.objects.filter(submission=self, created_at__gte=timespan).count()
@@ -185,7 +187,8 @@ class Vote(models.Model):
         unique_together = [("submission", "voter")]
 
     created_at = models.DateTimeField(db_index=True)
-
+    source = models.CharField(max_length=255, null=True, blank=True)
+    
 class Candidate(models.Model):
     first_name = models.CharField(max_length=255, null=True, blank=True)
     last_name = models.CharField(max_length=255, null=True, blank=True)

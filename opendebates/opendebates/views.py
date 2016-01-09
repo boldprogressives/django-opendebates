@@ -175,22 +175,35 @@ def vote(request, id):
             'comment_form': CommentForm(idea),            
             }
     voter, created = Voter.objects.get_or_create(email=form.cleaned_data['email'])
+
+    if created and 'opendebates.source' in request.COOKIES:
+        voter.source = request.COOKIES['opendebates.source']
+        voter.save()
+        
     if voter.zip != form.cleaned_data['zipcode']:
         voter.zip = form.cleaned_data['zipcode']
         try:
             voter.state = ZipCode.objects.get(zip=form.cleaned_data['zipcode']).state
         except Exception:
             pass
-        
         voter.save()
+        
     votes = idea.vote_set.filter(voter=voter)
     if len(votes) == 0:
+
+        if 'opendebates.source' in request.COOKIES:
+            vote_source = request.COOKIES['opendebates.source']
+        else:
+            vote_source = None
+        
         try:
             Vote.objects.create(  # or idea.voter_set.create(voter=voter)
                 submission=idea,
                 voter=voter,
                 ip_address=get_ip_address_from_request(request),
-                created_at=timezone.now())
+                created_at=timezone.now(),
+                source=vote_source,
+            )
         except Exception: # lazy handling of race condition
             pass
         else:
@@ -247,7 +260,10 @@ def questions(request):
     form_data = form.cleaned_data
 
     voter, created = Voter.objects.get_or_create(email=request.user.email)
-
+    if created and 'opendebates.source' in request.COOKIES:
+        voter.source = request.COOKIES['opendebates.source']
+        voter.save()
+        
     idea = Submission()
     idea.voter = voter
     idea.category = Category.objects.get(pk=category)
@@ -258,6 +274,10 @@ def questions(request):
     idea.ip_address = get_ip_address_from_request(request)
     idea.approved = True
     idea.votes += 1
+
+    if 'opendebates.source' in request.COOKIES:
+        idea.source = request.COOKIES['opendebates.source']
+    
     idea.save()
 
     Vote.objects.create(
@@ -282,8 +302,8 @@ class OpenDebatesRegistrationView(RegistrationView):
             voter = Voter.objects.get(email=cleaned_data['email'])
         except Voter.DoesNotExist:
             voter = Voter(email=cleaned_data['email'])
-            if 'bigideas.source' in request.COOKIES:
-                voter.source = request.COOKIES['bigideas.source']
+            if 'opendebates.source' in request.COOKIES:
+                voter.source = request.COOKIES['opendebates.source']
 
         voter.zip = cleaned_data['zip']
         try:
