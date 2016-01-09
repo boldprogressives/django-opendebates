@@ -1,6 +1,6 @@
-from .models import Voter
+import json
 import random
-
+from .models import Voter
 
 def get_voter(request):
     if request.user.is_authenticated():
@@ -16,6 +16,16 @@ def get_voter(request):
     elif 'voter' in request.session:
         return request.session['voter']
 
+def get_headers_from_request(request):
+    try:
+        headers = {}
+        for key in request.META:
+            if key.startswith("HTTP_"):
+                headers[key] = request.META[key]
+        return json.dumps(headers)
+    except Exception:
+        return None
+    
 def get_ip_address_from_request(request):
     PRIVATE_IPS_PREFIX = ('10.', '172.', '192.', '127.')
     ip_address = ''

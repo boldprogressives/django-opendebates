@@ -13,7 +13,8 @@ import json
 from registration.backends.simple.views import RegistrationView
 
 from .models import Submission, Voter, Vote, Category, Candidate, ZipCode
-from .utils import get_ip_address_from_request, choose_sort, sort_list
+from .utils import get_ip_address_from_request, get_headers_from_request
+from .utils import choose_sort, sort_list
 from .forms import OpenDebatesRegistrationForm
 from .forms import VoterForm, QuestionForm
 from opendebates_comments.forms import CommentForm
@@ -203,6 +204,7 @@ def vote(request, id):
                 ip_address=get_ip_address_from_request(request),
                 created_at=timezone.now(),
                 source=vote_source,
+                request_headers=get_headers_from_request(request),
             )
         except Exception: # lazy handling of race condition
             pass
@@ -284,6 +286,7 @@ def questions(request):
         submission=idea,
         voter=voter,
         ip_address=get_ip_address_from_request(request),
+        request_headers=get_headers_from_request(request),        
         created_at=timezone.now())
     url = reverse("vote", kwargs={'id': idea.id})
     return redirect(url)
