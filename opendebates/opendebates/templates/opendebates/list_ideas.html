@@ -1,5 +1,5 @@
 {% extends "opendebates/base.html" %}
-{% load i18n %}
+{% load i18n endless %}
 
 {% block title %}
   {% blocktrans %}Open Debates{% endblocktrans %}
@@ -84,9 +84,13 @@
   </div>
   <div class="row idea-list">
     <div class="col-md-12">
+      {% paginate 2 ideas %}
+      
       {% for idea in ideas %}
         {% include "opendebates/snippets/idea.html" %}
       {% endfor %}
+
+      {% show_pages %}
     </div>
   </div>
 

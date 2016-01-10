@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'opendebates',
     'opendebates_comments',
     'djorm_pgfulltext',
+    'endless_pagination',
     'bootstrapform',
     'registration',
 ]
