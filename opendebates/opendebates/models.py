@@ -141,7 +141,9 @@ class Voter(models.Model):
             name = u"%s" % user.first_name
             if user.last_name:
                 name = u"%s %s." % (name, user.last_name[0])
-                
+        if not name or not name.strip():
+            name = _(u"Somebody")
+            
         if voter.state:
             name = _(u"%(name)s from %(state)s" % {"name": name, "state": voter.state})
         return name
