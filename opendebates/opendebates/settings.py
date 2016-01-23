@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'djangobower',
     'opendebates',
     'opendebates_comments',
+    'opendebates_emails',
     'djorm_pgfulltext',
     'endless_pagination',
     'bootstrapform',
@@ -62,6 +63,7 @@ ROOT_URLCONF = 'opendebates.urls'
 
 LOGIN_URL = LOGIN_ERROR_URL = "/registration/login/"
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 TEMPLATES = [
     {
